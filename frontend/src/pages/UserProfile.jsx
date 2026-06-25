@@ -73,9 +73,9 @@ const UserProfile = () => {
   return (
     <>
       <SEO title={profile.name} description={profile.bio} />
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900">
-          <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             <div className="relative">
               <img
                 src={profile.avatar?.url || `https://ui-avatars.com/api/?name=${profile.name}`}
@@ -86,7 +86,7 @@ const UserProfile = () => {
                 <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-white bg-green-500 dark:border-gray-900" />
               )}
             </div>
-            <div className="flex-1 text-center sm:text-left">
+            <div className="flex-1 min-w-0 text-center sm:text-left">
               <h1 className="text-2xl font-bold">{profile.name}</h1>
               {profile.location && (
                 <p className="mt-1 flex items-center justify-center gap-1 text-gray-500 sm:justify-start">
@@ -97,7 +97,11 @@ const UserProfile = () => {
                 <StarRating rating={Math.round(profile.averageRating)} size="sm" />
                 <span className="text-sm text-gray-500">({profile.reviewCount} reviews)</span>
               </div>
-              {profile.bio && <p className="mt-4 text-gray-600 dark:text-gray-400">{profile.bio}</p>}
+              {profile.bio && (
+  <p className="mt-4 text-gray-600 dark:text-gray-400 break-words leading-7">
+    {profile.bio}
+  </p>
+)}
             </div>
             {!isOwnProfile && isAuthenticated && (
               <div className="flex flex-wrap gap-2">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FiPlus, FiTrash2, FiCamera } from 'react-icons/fi';
 import SEO from '../../components/SEO';
